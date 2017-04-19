@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Dashboard</title>
 </head>
 <body>
-<sidebar>
-	<ul>
-		<li><a href="home.php">Home</a></li>
-		<li><a href="profile.php">Profile</a></li>
-		<li><a href="logout.php">Logout</a></li>
-	</ul>
-</sidebar>
-<div>
-	HOME
-</div>
 <?php
+include "sidebar.php";
+
+switch ($_GET['q']) {
+	case 'home':
+		include "dashboard.php";
+		break;
+	case 'profile':
+		include "profile.php";
+		break;
+	case 'logout':
+		header("Location: logout.php");
+		break;
+	default:
+		include "dashboard.php";
+		break;
+}
+
 include "session_checker.php";
 ?>
 </body>

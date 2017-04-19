@@ -4,9 +4,9 @@
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-session_start();
 if ($username=="bill" && $password=="123456") {
-	$_SESSSION['username'] = $username;
+	session_start();
+	$_SESSION['username'] = $username;
 	header("Location: home.php");
 }else{
 	header("Location: login.php");
